@@ -5,6 +5,7 @@ public class Person implements Payable,  Comparable<Person>{
     private String surname;
 
     public Person() {
+
         id=id_gen++;
     }
     public Person(String name, String surname) {

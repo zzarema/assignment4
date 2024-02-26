@@ -1,3 +1,5 @@
+import javax.crypto.NullCipher;
+
 public class Student extends Person {
     private int id;
     private static int id_gen=1;
@@ -56,7 +58,7 @@ public class Student extends Person {
     }
     @Override
     public double getPaymentAmount() {
-        return (gpa > 2.67) ? 36660.00 : 0;
+        return (gpa > 2.67) ? 36660.00: 0;
     }
     @Override
     public int compareTo(Person o) {

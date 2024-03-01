@@ -1,21 +1,27 @@
-import java.util.Scanner;
-import java.util.Collections;
 import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
+        // Создание корзины покупок
+        ShoppingCart cart = new ShoppingCart();
 
-        ArrayList<Person> people = new ArrayList<>();
+        // Создание интерфейса пользователя
+        UserInterface ui = new UserInterface(cart);
 
-        people.add(new Employee("John", "Lennon", "Manager", 27045.78));
-        people.add(new Employee("George", "Harrison", "Developer", 50000.00));
-        people.add(new Student("Ringo", "Starr", 2.50));
-        people.add(new Student("Paul", "McCartney", 3.00));
-        Collections.sort(people);
-        printData(people);
-    }
-    public static void printData(Iterable<Person> people) {
-        for (Person person : people) {
-            System.out.printf(  "%s  %.2f tenge\n", person, person.getPaymentAmount());
+        // Добавление продуктов в корзину
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.println("Enter item name (or type 'exit' to finish): ");
+            String itemName = scanner.nextLine();
+            if (itemName.equalsIgnoreCase("exit")) {
+                break;
+            }
+            System.out.println("Enter item price: ");
+            double itemPrice = Double.parseDouble(scanner.nextLine());
+            ClothingItem newItem = new ClothingItem(itemName, itemPrice);
+            cart.addItem(newItem);
         }
-        }
+        scanner.close();
     }
+}

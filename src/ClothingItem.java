@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 class ClothingItem {
     private String name;
     private double price;

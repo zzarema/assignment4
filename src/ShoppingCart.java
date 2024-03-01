@@ -5,7 +5,7 @@ class ShoppingCart implements Observable {
     private List<ClothingItem> items = new ArrayList<>();
 
     public void addItem(ClothingItem item) {
-        // Если продукт с таким именем уже есть в корзине, обновляем его цену
+
         for (ClothingItem existingItem : items) {
             if (existingItem.getName().equals(item.getName())) {
                 existingItem.setPrice(item.getPrice());
@@ -13,7 +13,7 @@ class ShoppingCart implements Observable {
                 return;
             }
         }
-        // Иначе добавляем новый продукт
+
         items.add(item);
         notifyObservers();
     }

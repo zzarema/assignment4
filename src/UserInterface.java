@@ -8,7 +8,7 @@ class UserInterface implements Observer {
 
     @Override
     public void update() {
-        // Обновление интерфейса пользователя
+
         System.out.println("Shopping cart updated:");
         for (ClothingItem item : cart.getItems()) {
             System.out.println(item.getName() + " - $" + item.getPrice());
